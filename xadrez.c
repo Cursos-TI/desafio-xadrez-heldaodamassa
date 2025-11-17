@@ -34,6 +34,25 @@ int main() {
         contadorRainha++;
     } while (contadorRainha <= movimentoRainha);
 
+
+      int movimentosBaixo = 2;
+    int movimentosEsquerda = 1;
+
+    printf("\nMovimento do Cavalo:\n");
+
+ 
+    for (i = 1; i <= movimentosBaixo; i++) {
+        printf("Baixo (%d)\n", i);
+    }
+
+   
+    int contadorEsquerda = 1;
+
+    while (contadorEsquerda <= movimentosEsquerda) {
+        printf("Esquerda (%d)\n", contadorEsquerda);
+        contadorEsquerda++;
+    }
+
    
     printf("\nSimulação concluída!\n");
 
