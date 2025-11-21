@@ -1,60 +1,89 @@
 #include <stdio.h>
 
-int main() {
-   
-    int i;
-    int movimentoTorre = 5;
 
-    printf("Movimento da Torre:\n");
-    for (i = 1; i <= movimentoTorre; i++) {
-        printf("cima (%d)\n", i);
+void moverTorreRec(int atual, int limite) {
+    if (atual > limite) return;
+
+    printf("Cima (%d)\n", atual);
+
+    moverTorreRec(atual + 1, limite);
+}
+
+void moverBispoRec(int atual, int limite) {
+    if (atual > limite) return;
+
+   
+    for (int v = 1; v <= 1; v++) {
+        printf("Cima ");
+
+       
+        for (int h = 1; h <= 1; h++) {
+            printf("Direita (%d)\n", atual);
+        }
     }
 
-    printf("\n");
+    moverBispoRec(atual + 1, limite);
+}
 
-   
+
+void moverRainhaRec(int atual, int limite) {
+    if (atual > limite) return;
+
+    printf("Esquerda (%d)\n", atual);
+
+    moverRainhaRec(atual + 1, limite);
+}
+
+
+void moverCavalo() {
+
+    int movimentos = 3;
+
+    for (int i = 1; i <= movimentos; i++) {
+
+
+        for (int v = 1; v <= 2; v++) {
+            printf("Cima (%d)\n", v);
+        }
+
+        for (int h = 1; h <= 1; h++) {
+            printf("Direita (1)\n");
+
+            continue; 
+        }
+
+        if (i == movimentos)
+            break; 
+    }
+}
+
+
+int main() {
+
+    int movimentoTorre = 5;
     int movimentoBispo = 5;
-    int contadorBispo = 1;
+    int movimentoRainha = 8;
+
+    
+    printf("Movimento da Torre:\n");
+    moverTorreRec(1, movimentoTorre);
+    printf("\n");
 
     printf("Movimento do Bispo:\n");
-    while (contadorBispo <= movimentoBispo) {
-        printf("Cima, Direita (%d)\n", contadorBispo);
-        contadorBispo++;
-    }
-
+    moverBispoRec(1, movimentoBispo);
     printf("\n");
 
-   
-    int movimentoRainha = 8;
-    int contadorRainha = 1;
-
-    printf("Movimento da Rainha:\n");
-    do {
-        printf("Esquerda (%d)\n", contadorRainha);
-        contadorRainha++;
-    } while (contadorRainha <= movimentoRainha);
-
-
-      int movimentosBaixo = 2;
-    int movimentosEsquerda = 1;
-
-    printf("\nMovimento do Cavalo:\n");
-
  
-    for (i = 1; i <= movimentosBaixo; i++) {
-        printf("Baixo (%d)\n", i);
-    }
+    printf("Movimento da Rainha:\n");
+    moverRainhaRec(1, movimentoRainha);
+    printf("\n");
 
-   
-    int contadorEsquerda = 1;
+    
+    printf("Movimento do Cavalo:\n");
+    moverCavalo();
+    printf("\n");
 
-    while (contadorEsquerda <= movimentosEsquerda) {
-        printf("Esquerda (%d)\n", contadorEsquerda);
-        contadorEsquerda++;
-    }
-
-   
-    printf("\nSimulação concluída!\n");
+    printf("Simulação concluída!\n");
 
     return 0;
 }
