@@ -1,22 +1,16 @@
 #include <stdio.h>
 
-
 void moverTorreRec(int atual, int limite) {
     if (atual > limite) return;
-
     printf("Cima (%d)\n", atual);
-
     moverTorreRec(atual + 1, limite);
 }
 
 void moverBispoRec(int atual, int limite) {
     if (atual > limite) return;
 
-   
     for (int v = 1; v <= 1; v++) {
         printf("Cima ");
-
-       
         for (int h = 1; h <= 1; h++) {
             printf("Direita (%d)\n", atual);
         }
@@ -25,46 +19,38 @@ void moverBispoRec(int atual, int limite) {
     moverBispoRec(atual + 1, limite);
 }
 
-
 void moverRainhaRec(int atual, int limite) {
     if (atual > limite) return;
-
     printf("Esquerda (%d)\n", atual);
-
     moverRainhaRec(atual + 1, limite);
 }
 
-
 void moverCavalo() {
-
     int movimentos = 3;
 
     for (int i = 1; i <= movimentos; i++) {
-
+        int passosVerticais = 0;
 
         for (int v = 1; v <= 2; v++) {
-            printf("Cima (%d)\n", v);
+            passosVerticais++;
+            printf("Cima (%d)\n", passosVerticais);
         }
 
         for (int h = 1; h <= 1; h++) {
-            printf("Direita (1)\n");
-
-            continue; 
+            printf("Direita (%d)\n", h);
+            continue;
         }
 
         if (i == movimentos)
-            break; 
+            break;
     }
 }
 
-
 int main() {
-
     int movimentoTorre = 5;
     int movimentoBispo = 5;
     int movimentoRainha = 8;
 
-    
     printf("Movimento da Torre:\n");
     moverTorreRec(1, movimentoTorre);
     printf("\n");
@@ -73,12 +59,10 @@ int main() {
     moverBispoRec(1, movimentoBispo);
     printf("\n");
 
- 
     printf("Movimento da Rainha:\n");
     moverRainhaRec(1, movimentoRainha);
     printf("\n");
 
-    
     printf("Movimento do Cavalo:\n");
     moverCavalo();
     printf("\n");
